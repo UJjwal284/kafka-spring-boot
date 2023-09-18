@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 @ComponentScan
-public class KafkaService {
+public class ProducerService {
 
     final KafkaTemplate<String, String> kafkaTemplate;
 
-    public KafkaService(KafkaTemplate<String, String> kafkaTemplate) {
+    public ProducerService(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void updateLocation(String location) {
-        this.kafkaTemplate.send(AppConstants.LOCATION_TOPIC_NAME, location);
+    public void updatePrice(String price) {
+        this.kafkaTemplate.send(AppConstants.TOPIC_NAME, price);
     }
 }
